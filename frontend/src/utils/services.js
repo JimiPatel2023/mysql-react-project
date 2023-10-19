@@ -1,4 +1,4 @@
-export const baseUrl = process.env.REACT_APP_BASE_URL;
+export const baseUrl = "https://td-backend-iota.vercel.app/api";
 
 export const postRequest = async (url, body) => {
   const response = await fetch(url, {
