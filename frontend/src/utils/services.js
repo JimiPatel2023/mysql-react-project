@@ -15,7 +15,12 @@ export const postRequest = async (url, body) => {
 };
 
 export const getRequest = async (url) => {
-  const response = await fetch(url, { credentials: "include" });
+  const response = await fetch(url, {
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   const data = await response.json();
   return data;
 };
