@@ -102,8 +102,12 @@ const loginUser = async (req, res) => {
 };
 
 const logoutUser = async (req, res) => {
-  res.clearCookie("token");
-  res.json({ message: "logged out" });
+  res
+    .status(200)
+    .cookie("token", null, {
+      expires: new Date(Date.now()),
+    })
+    .json({ message: "logged out" });
 };
 
 const verifyUser = async (req, res) => {
