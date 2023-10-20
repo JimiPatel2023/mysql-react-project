@@ -101,10 +101,13 @@ const loginUser = async (req, res) => {
 };
 
 const logoutUser = async (req, res) => {
-  res.clearCookie("token");
-  res.status(200).json({
-    message: "logged out",
+  res.clearCookie("token", {
+    path: "/",
+    secure: false,
+    httpOnly: false,
+    sameSite: false,
   });
+  res.json({ message: "logged out" });
 };
 
 const verifyUser = async (req, res) => {
