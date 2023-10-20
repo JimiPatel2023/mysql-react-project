@@ -2,6 +2,7 @@ const { connection } = require("../db");
 const generateToken = require("../utils/generateToken");
 const hashPassword = require("../utils/hashPassword");
 const matchPasswords = require("../utils/matchPasswords");
+const saveCookie = require("../utils/saveCookie");
 
 const registerUser = async (req, res) => {
   try {
@@ -101,12 +102,7 @@ const loginUser = async (req, res) => {
 };
 
 const logoutUser = async (req, res) => {
-  res.clearCookie("token", {
-    path: "/",
-    secure: true,
-    httpOnly: true,
-    sameSite: "none",
-  });
+  saveCookie(null, res, 0);
   res.json({ message: "logged out" });
 };
 
