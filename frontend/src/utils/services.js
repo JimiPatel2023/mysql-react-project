@@ -16,10 +16,10 @@ export const postRequest = async (url, body) => {
 
 export const getRequest = async (url) => {
   const response = await fetch(url, {
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: "include",
   });
   const data = await response.json();
   return data;
