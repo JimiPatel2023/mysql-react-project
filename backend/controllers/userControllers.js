@@ -103,10 +103,10 @@ const loginUser = async (req, res) => {
 const logoutUser = async (req, res) => {
   console.log(req.cookies);
   res
-    .cookie("token", null, {
+    .cookie("token", "", {
       expires: new Date(Date.now()),
-      httpOnly: false,
-      secure: false,
+      httpOnly: true,
+      secure: true,
       sameSite: "none",
     })
     .status(200)
