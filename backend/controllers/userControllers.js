@@ -103,9 +103,9 @@ const loginUser = async (req, res) => {
 const logoutUser = async (req, res) => {
   res.clearCookie("token", {
     path: "/",
-    secure: false,
-    httpOnly: false,
-    sameSite: false,
+    secure: true,
+    httpOnly: true,
+    sameSite: "none",
   });
   res.json({ message: "logged out" });
 };
