@@ -102,7 +102,7 @@ const loginUser = async (req, res) => {
 };
 
 const logoutUser = async (req, res) => {
-  saveCookie(null, res, 0);
+  res.clearCookie("token");
   res.json({ message: "logged out" });
 };
 
