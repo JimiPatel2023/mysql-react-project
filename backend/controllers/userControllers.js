@@ -101,12 +101,12 @@ const loginUser = async (req, res) => {
 };
 
 const logoutUser = async (req, res) => {
-  console.log(req.cookie);
+  console.log(req.cookies);
   res
     .cookie("token", null, {
       expires: new Date(Date.now()),
-      httpOnly: true,
-      secure: true,
+      httpOnly: false,
+      secure: false,
       sameSite: "none",
     })
     .status(200)
